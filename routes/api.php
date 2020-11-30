@@ -24,17 +24,15 @@ Route::middleware('auth:api')->group(function() {
     });
 Route::get('/todos', [TodoController::class, 'index']);
 Route::post('/logout', [AuthController::class, 'logout']);
-
+Route::post('/todos', [TodoController::class, 'store']);
+Route::patch('/todos/{todo}', [TodoController::class, 'update']);
+Route::delete('/todos/{todo}', [TodoController::class, 'destroy']);
+Route::patch('/todosCheckAll', [TodoController::class, 'updateAll']);
+Route::delete('/todosDeleteCompleted', [TodoController::class, 'destroyCompleted']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
-
-Route::post('/todos', [TodoController::class, 'store']);
-Route::patch('/todos/{todo}', [TodoController::class, 'update']);
-Route::patch('/todosCheckAll', [TodoController::class, 'updateAll']);
-Route::delete('/todos/{todo}', [TodoController::class, 'destroy']);
-Route::delete('/todosDeleteCompleted', [TodoController::class, 'destroyCompleted']);
 
 
