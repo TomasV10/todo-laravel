@@ -19,6 +19,7 @@ class CreateTodosTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('title');
             $table->boolean('completed')->default(false);
+            $table->boolean('inProgress')->default(false);
             $table->timestamps();
         });
     }

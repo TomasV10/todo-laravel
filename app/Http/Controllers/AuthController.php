@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Exception\BadResponseException;
 
 class AuthController extends Controller
 {
@@ -23,15 +24,16 @@ class AuthController extends Controller
                 ]
             ]);
             return $response->getBody();
-        } catch (\GuzzleHttp\Exception\BadResponseException $e) {
-            if ($e->getCode() === 400) {
-                return response()->json('Invalid Request. Please enter a username or a password.', $e->getCode());
-            } else if ($e->getCode() === 401) {
-                return response()->json('Your credentials are incorrect. Please try again', $e->getCode());
-            }
-
-            return response()->json('Something went wrong on the server.', $e->getCode());
+        } catch (BadResponseException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                case 401:
+                    return response()->json('Your credentials are incorrect. Please try again', $e->getCode());
+                break;
+                default:
+                    return response()->json('Something went wrong on the server', $e->getCode());
         }
+    }
     }
 
     public function register(Request $request)
