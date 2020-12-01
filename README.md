@@ -1,4 +1,4 @@
-## Front-end APP
+## Front-end part
 
 https://github.com/TomasV10/todo-vue
 
