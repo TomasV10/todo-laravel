@@ -4,7 +4,7 @@ https://github.com/TomasV10/todo-vue
 
 ## Database
 
-Used xampp - Mysql
+Mysql
 
 
 
