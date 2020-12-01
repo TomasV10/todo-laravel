@@ -1,19 +1,20 @@
 ## Front-end part
-
+{
 https://github.com/TomasV10/todo-vue
-
+}
 ## Database
-
+{
 Mysql
-
+}
 ## .env file
-
+{
 Please add
 
 PASSPORT_LOGIN_ENDPOINT="http://localhost/todo-laravel/oauth/token"
 PASSPORT_CLIENT_ID=2
-PASSPORT_CLIENT_SECRET=GYdfai2MbDKrM9vnyfvJ13DSg4AjVusKcBTWU3Bq
+PASSPORT_CLIENT_SECRET=paste here generated code by laravel passport for example:GYdfai2MbDKrM9vnyfvJ13DSg4AjVusKcBTWU3Bq (password grant)
 
+}
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
