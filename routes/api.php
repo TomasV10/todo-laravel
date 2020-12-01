@@ -33,6 +33,12 @@ Route::delete('/todosDeleteCompleted', [TodoController::class, 'destroyCompleted
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::get('/userList', [AuthController::class, 'index']);
+Route::patch('/userList/{user}', [AuthController::class, 'update']);
+Route::delete('/userList/{user}', [AuthController::class, 'destroy']);
+
+
+
 
 
 

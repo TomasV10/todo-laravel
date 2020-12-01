@@ -32,8 +32,27 @@ class AuthController extends Controller
                 break;
                 default:
                     return response()->json('Something went wrong on the server', $e->getCode());
+            }
         }
     }
+
+    public function index()
+    {
+        return User::all();
+    }
+
+    public function update(Request $request, User $user)
+    {
+        // if($todo->user_id !== auth()->user()->id){
+        //     return response()->json('Unauthorized', 401);
+        // }
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
+        ]);
+        $user->update($data);
+        return response($user, 200);
     }
 
     public function register(Request $request)
@@ -51,6 +70,14 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return response("Selected user was deleted", 200);
+    }
+    
+
 
     public function logout()
     {
